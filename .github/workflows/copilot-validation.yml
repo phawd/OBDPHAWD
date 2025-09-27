@@ -1,0 +1,56 @@
+name: Copilot Configuration Validation
+
+on:
+  push:
+    paths:
+      - '.github/copilot-*.md'
+      - '.github/copilot-*.yml'
+  pull_request:
+    paths:
+      - '.github/copilot-*.md'
+      - '.github/copilot-*.yml'
+
+jobs:
+  validate-copilot-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Validate Copilot instruction files exist
+        run: |
+          echo "Checking for required Copilot configuration files..."
+          
+          if [ ! -f ".github/copilot-instructions.md" ]; then
+            echo "❌ Missing .github/copilot-instructions.md"
+            exit 1
+          else
+            echo "✅ Found .github/copilot-instructions.md"
+          fi
+          
+          if [ ! -f ".github/copilot-knowledge.md" ]; then
+            echo "❌ Missing .github/copilot-knowledge.md"
+            exit 1
+          else
+            echo "✅ Found .github/copilot-knowledge.md"
+          fi
+          
+          if [ ! -f ".github/copilot-workspace.yml" ]; then
+            echo "❌ Missing .github/copilot-workspace.yml"
+            exit 1
+          else
+            echo "✅ Found .github/copilot-workspace.yml"
+          fi
+          
+          echo "✅ All required Copilot configuration files are present"
+      
+      - name: Validate YAML syntax
+        run: |
+          echo "Validating YAML syntax..."
+          if command -v yamllint >/dev/null 2>&1; then
+            yamllint .github/copilot-workspace.yml
+          else
+            echo "yamllint not available, using python to validate YAML"
+            python3 -c "import yaml; yaml.safe_load(open('.github/copilot-workspace.yml'))"
+          fi
+          echo "✅ YAML syntax is valid"
