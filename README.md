@@ -18,9 +18,44 @@ This repository is configured with GitHub Copilot coding agent instructions to p
 - `.github/copilot-workspace.yml` - Project metadata and configuration
 - `.github/workflows/copilot-validation.yml` - Automated validation of Copilot config
 
+## Project Structure
+
+The solution is organized as follows:
+
+- **`src/OBDPHAWD.Core/`** - Core library containing OBD functionality
+  - `ObdDiagnostics.cs` - Main diagnostics class
+  - `IObdCommunication.cs` - Interface for OBD communication
+  - `ObdCommand.cs` - Base class for OBD commands
+  - `ObdCommands.cs` - Standard OBD-II command definitions
+- **`src/OBDPHAWD.Console/`** - Console application demonstrating the library
+- **`tests/OBDPHAWD.Core.Tests/`** - Unit tests for the core library
+
 ## Getting Started
 
-[Development setup and usage instructions will be added as the project develops]
+### Prerequisites
+- .NET 8.0 SDK or later
+
+### Building the Solution
+```bash
+dotnet build
+```
+
+### Running Tests
+```bash
+dotnet test
+```
+
+### Running the Console Application
+```bash
+dotnet run --project src/OBDPHAWD.Console
+```
+
+### Development Guidelines
+This project follows the coding standards and patterns defined in `.github/copilot-instructions.md`, including:
+- Async/await patterns for I/O operations
+- Proper error handling and resource disposal
+- Unit tests following Arrange-Act-Assert pattern
+- XML documentation for public APIs
 
 ## License
 
