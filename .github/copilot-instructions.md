@@ -70,6 +70,18 @@ OBDPHAWD is a C#/.NET project focused on OBD (On-Board Diagnostics) functionalit
 - Document supported OBD standards and protocols
 - Ensure thread safety for concurrent OBD operations
 
+### Manufacturer-Specific Code Guidelines
+- **Document proprietary PIDs**: Clearly indicate when using manufacturer-specific codes (Mode 22, P1xxx DTCs)
+- **Version awareness**: Account for variations across model years and trim levels
+- **Graceful degradation**: Handle unsupported PIDs without crashing
+- **Legal compliance**: Respect manufacturer intellectual property and licensing
+- **Security considerations**: Properly handle authentication requirements for protected diagnostic functions
+- **Reference documentation**: Include references to manufacturer service manuals or TSBs when available
+- **Testing strategy**: Test with multiple vehicle models when implementing manufacturer-specific features
+- **Error handling**: Implement specific error codes for unsupported manufacturer PIDs (0x11, 0x12, 0x31, 0x33)
+- **Naming conventions**: Use clear naming that indicates manufacturer (e.g., `FordProprietaryPid`, `ToyotaHybridCommand`)
+- **Configuration**: Allow runtime configuration for enabling/disabling manufacturer-specific features
+
 ## Code Review Focus Areas
 - Verify error handling is comprehensive
 - Check for proper resource disposal
