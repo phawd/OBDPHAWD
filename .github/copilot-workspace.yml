@@ -2,8 +2,8 @@
 copilot:
   workspace: obdpahwd
   description: >
-    Copilot workspace for the OBDPHAWD C# project. Keep descriptions short and
-    lines under 80 characters.
+    Copilot workspace for the OBDPHAWD C# project.
+    Keep descriptions short and lines under 80 characters.
   settings:
     language: "C#"
     root: "."
