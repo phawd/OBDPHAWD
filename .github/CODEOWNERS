@@ -1,0 +1,18 @@
+# CODEOWNERS file for OBDPHAWD
+# This file defines who is responsible for code in this repository
+
+# Global ownership - all files default to repository owner
+* @phawd
+
+# GitHub configuration files
+/.github/ @phawd
+
+# Documentation files  
+*.md @phawd
+/docs/ @phawd
+
+# Configuration files
+*.config @phawd
+*.json @phawd
+*.yml @phawd
+*.yaml @phawd

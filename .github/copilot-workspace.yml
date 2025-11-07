@@ -1,0 +1,39 @@
+# GitHub Copilot Workspace Configuration for OBDPHAWD
+
+# Project metadata
+name: "OBDPHAWD"
+description: "OBD (On-Board Diagnostics) functionality project in C#/.NET"
+language: "csharp"
+framework: "dotnet"
+
+# Development context
+purpose: |
+  This project focuses on automotive OBD (On-Board Diagnostics) functionality,
+  providing tools and libraries for communicating with vehicle diagnostic systems.
+
+# Key technologies and patterns
+technologies:
+  - "C#"
+  - ".NET"
+  - "OBD-II Protocol"
+  - "Serial Communication"
+  - "Automotive Diagnostics"
+
+# Coding standards
+standards:
+  style: "Microsoft C# Coding Conventions"
+  patterns:
+    - "Async/Await for I/O operations"
+    - "Dependency Injection"
+    - "Repository Pattern"
+    - "Command Pattern for OBD commands"
+  testing: "Unit tests with Arrange-Act-Assert pattern"
+
+# Project-specific guidance
+guidelines:
+  - "Focus on automotive OBD standards compliance"
+  - "Implement robust error handling for communication failures" 
+  - "Use async patterns for non-blocking I/O operations"
+  - "Follow SOLID principles and clean architecture"
+  - "Prioritize performance for real-time diagnostic data"
+  - "Ensure proper resource disposal for communication interfaces"
